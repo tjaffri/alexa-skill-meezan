@@ -1,0 +1,31 @@
+{
+    "parser": "babel-eslint",
+    "ecmaFeatures": {
+        "modules": true
+    },
+    "installedESLint": true,
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "rules": {
+        "semi": [
+            2,
+            "always"
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "no-unused-vars": [
+            2,
+            {
+                "varsIgnorePattern": "^ssml$"
+            }
+        ]
+    }
+}
