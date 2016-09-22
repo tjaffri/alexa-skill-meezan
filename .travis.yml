@@ -1,5 +1,19 @@
 sudo: false
 language: node_js
 node_js:
-  - 'stable'
-  - '4.3.2'   # Version of Node used in AWS Lambda: http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
+- stable
+- 4.3.2   # Version of Node used in AWS Lambda: http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
+install:
+  - npm install
+script:
+  - npm run lint
+  - npm run package
+deploy:
+  provider: lambda
+  function_name: Meezan
+  role: arn:aws:iam::515409306160:role/service-role/lambda_basic_execution
+  handler_name: index.handler
+  zip: build/package.zip
+  access_key_id: AKIAJP6WJRLEYEFN3CXQ
+  secret_access_key: # Encrypted, so don't bother being sneaky and using this directly... won't work
+    secure: RTA1735lXIYR4vRg/OxCm2iDzv2Mrlknj3JgnOCuUbiVAK3vp6sX/dximNDPKTpBjQF+IXZBkPMLK2+JCOGCp3UEnOqV9ioUksas8ViIarMtjehY56eY43afJxQzdn+Aq6u3kKiR7NQnVC3xywU9MelHfOkVHXn6n7VfeMwJIMTBChbmek+sKx+my8RXirM/WItSUlqUpeVPaFavBdNETxwzTL7OKVYfNcqsVFSaDZNCuGPlc+5HenoQwmfkEIN2RUm1aViMnwtDTdxS7YxWEqNQxffxOVLzVtjZ8agHr31RDNsfvzOtWTiXISETKGYW8Pmhnh0KxDyZJgWsDlA4kopXxdodmCWd2rDLyyJRkUVDsC9kb82pRG1kv6zuFon8abEcj9Iou0RJOX4swq+ruCuP3FhTuvsiKY9RXELq/iLYxtXd3dEYhsmt9a1GV1LdKLfUeOuvsqvKxwFIz9yLZN1yBrX0gUvx0jYXIyok73ElnJXg04waAWMegsyawlnPHQ1a5e+pCWvPzwaNGkyFT9+8A4JsTIQD20ZcrVu+/C/7Wq7uIAJSST5UF/urBcyQ8qzO71A61upZdcz6uQgtNIrdicyOEHxG8NmBLzi4VEJ2DVYwI3UnXunN4/UmM/oNrebcW/4C2nk9r+W8Cjh7vXviYmT63zh5kELJa+tPyoM=
