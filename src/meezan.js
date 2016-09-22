@@ -24,5 +24,4 @@ export default class Meezan {
   stop() {
     return say(<speak>Goodbye!</speak>);
   }
-
 }

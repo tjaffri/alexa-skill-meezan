@@ -12,9 +12,7 @@
     "test": "ava",
     "posttest": "npm run lint",
     "prepackage": "npm run test",
-    "package": "bestzip build/package.zip build/index.js build/UTTERANCES",
-    "predeploy": "npm run package",
-    "deploy": "bin/deploy --config config/lambda.config.js --package build/package.zip"
+    "package": "bestzip build/package.zip build/index.js build/UTTERANCES"
   },
   "ava": {
     "babel": "inherit"
