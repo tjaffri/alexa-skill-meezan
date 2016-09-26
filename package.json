@@ -17,10 +17,12 @@
   "ava": {
     "babel": "inherit"
   },
-  "devDependencies": {
+  "dependencies": {
     "alexa-annotations": "^6.0.0",
     "alexa-response": "^3.1.1",
-    "alexa-ssml": "^0.5.0",
+    "alexa-ssml": "^0.5.0"
+  },
+  "devDependencies": {
     "alexa-utterances": "^0.1.0",
     "ava": "^0.14.0",
     "babel-cli": "^6.6.5",
