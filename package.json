@@ -6,7 +6,9 @@
     "npm": "3.5.0"
   },
   "description": "An Alexa skill for the Amazon Echo.",
+  "license": "MIT",
   "main": "build/index.js",
+  "repository": "axis-tip/alexa-skill-meezan",
   "scripts": {
     "lint": "eslint src/**/*.js test/**/*.js",
     "build": "npm-run-all --parallel build:skill build:utterances",
