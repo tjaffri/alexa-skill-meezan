@@ -11,7 +11,8 @@ deploy:
   provider: lambda
   function_name: Meezan
   role: arn:aws:iam::515409306160:role/service-role/lambda_basic_execution
-  handler_name: "index.handler"
+  handler_name: handler
+  runtime: "Node.js 4.3"
   zip: build/package.zip
   access_key_id: AKIAJQVBOZTDAL4YX2FQ
   secret_access_key:
