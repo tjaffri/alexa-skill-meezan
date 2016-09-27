@@ -1,2 +1,15 @@
-hello say hello
-hello say hello {People|Person}
+AboutIntent who developed this skill
+AboutIntent tell me about the developer
+AboutIntent give me information about the developer
+AboutIntent who is the author
+AboutIntent what does this skill do
+AboutIntent what version is this skill
+VerseCountIntent tell me how many verses are in chapter {Chapter} of the Holy Quran
+VerseCountIntent how many verses are in chapter {Chapter} of the Holy Quran
+VerseCountIntent tell me how many verses are in chapter {Chapter} of the Quran
+VerseCountIntent how many verses are in chapter {Chapter} of the Quran
+VerseCountIntent tell me how many verses are in chapter {Chapter}
+VerseCountIntent how many verses are in chapter {Chapter}
+VerseCountIntent tell me how many verses are in chapter {Chapter}
+VerseCountIntent how many verses are in chapter {Chapter}
+

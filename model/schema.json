@@ -1,6 +1,18 @@
 {
   "intents": [
     {
+      "intent": "VerseCountIntent",
+      "slots": [
+        {
+          "name": "Chapter",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AboutIntent"
+    },
+    {
       "intent": "AMAZON.CancelIntent"
     },
     {
@@ -8,15 +20,6 @@
     },
     {
       "intent": "AMAZON.StopIntent"
-    },
-    {
-      "intent": "hello",
-      "slots": [
-        {
-          "name": "Person",
-          "type": "LITERAL"
-        }
-      ]
     }
   ]
 }
