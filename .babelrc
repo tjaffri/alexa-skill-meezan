@@ -5,7 +5,7 @@
   ],
   "ignore": "test/**",
   "env": {
-    "development": {
+    "test": {
       "sourceMaps": "inline"
     }
   },
