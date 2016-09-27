@@ -1,6 +1,7 @@
 # [Alexa-Skill-Meezan](https://github.com/axis-tip/alexa-skill-meezan)
 
 [![Build Status](http://img.shields.io/travis/axis-tip/alexa-skill-meezan/master.svg?style=flat-square)](https://travis-ci.org/axis-tip/alexa-skill-meezan)
+[![Coverage Status](https://coveralls.io/repos/github/axis-tip/alexa-skill-meezan/badge.svg?branch=master)](https://coveralls.io/github/axis-tip/alexa-skill-meezan?branch=master)
 [![Dependency Status](http://img.shields.io/david/axis-tip/alexa-skill-meezan.svg?style=flat-square)](https://david-dm.org/axis-tip/alexa-skill-meezan)
 
 A Quran skill for Alexa.
