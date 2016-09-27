@@ -3,7 +3,6 @@
     "es2015",
     "stage-1"
   ],
-  "ignore": "test/**",
   "env": {
     "test": {
       "sourceMaps": "inline"

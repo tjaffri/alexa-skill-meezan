@@ -22,10 +22,7 @@
     "package": "bestzip build/package.zip build/index.js build/UTTERANCES"
   },
   "ava": {
-    "babel": "inherit",
-    "require": [
-      "babel-core/register"
-    ]
+    "babel": "inherit"
   },
   "devDependencies": {
     "alexa-annotations": "^6.0.0",
