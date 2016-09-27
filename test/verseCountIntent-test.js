@@ -3,7 +3,7 @@ import { handler as Skill } from '..';
 import { Request } from 'alexa-annotations';
 
 test('VerseCountIntent', t => {
-  const event = Request.intent('VerseCountIntent', { Chapter: 1 }).build();
+  const event = Request.intent('VerseCountIntent', { Chapter: '1' }).build();
 
   return Skill(event).then(response => {
     const expectedText = 'Surah Fatiha has 7 verses.';

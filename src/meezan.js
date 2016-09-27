@@ -15,7 +15,7 @@ export default class Meezan {
   verseCount({ Chapter = 1 }) {
 
     let speechOutput = `Sorry, I don\'t know anything about chapter ${Chapter}... check back later, I\'m always learning!`;
-    if (Chapter === 1) {
+    if (Number(Chapter) === 1) {
       speechOutput = 'Surah Fatiha has 7 verses.';
     }
 
