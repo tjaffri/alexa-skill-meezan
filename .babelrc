@@ -1,7 +1,21 @@
 {
-  "presets": ["es2015", "stage-1"],
+  "presets": [
+    "es2015",
+    "stage-1"
+  ],
+  "ignore": "test/**",
+  "env": {
+    "development": {
+      "sourceMaps": "inline"
+    }
+  },
   "plugins": [
     "transform-decorators-legacy",
-    ["transform-react-jsx", { "pragma": "ssml" }]
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "ssml"
+      }
+    ]
   ]
 }
