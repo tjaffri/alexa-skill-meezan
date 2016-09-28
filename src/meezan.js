@@ -20,7 +20,7 @@ export default class Meezan {
       // Fetch info about requested chapter and build dynamic response.
       const response = await request.get(`http://meezanapi.azurewebsites.net/chapters/${Chapter}`);
       const chapterInfo = JSON.parse(response);
-      speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en} has ${chapterInfo.ayas} verses.`;
+      speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en}, has ${chapterInfo.ayas} verses.`;
     } catch (err) {
       speechOutput = `Hmm, I ran into a problem and could not process your request. Please try again later. More information: ${err}`;
     }
