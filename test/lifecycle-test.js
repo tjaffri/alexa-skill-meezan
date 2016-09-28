@@ -1,6 +1,6 @@
 import test from 'ava';
-import { handler as Skill } from '..';
 import { Request } from 'alexa-annotations';
+import { handler as Skill } from '..';
 
 test('LaunchRequest', t => {
   const event = Request.launchRequest().build();
@@ -10,8 +10,8 @@ test('LaunchRequest', t => {
       version: '1.0',
       response: {
         shouldEndSession: true,
-        outputSpeech: { type: 'PlainText', text: 'Meezan launched!' }
-      }
+        outputSpeech: { type: 'PlainText', text: 'Meezan launched!' },
+      },
     });
   });
 });
@@ -24,8 +24,8 @@ test('CancelIntent', t => {
       version: '1.0',
       response: {
         shouldEndSession: true,
-        outputSpeech: { 'type': 'SSML', 'ssml': '<speak>Goodbye!</speak>' }
-      }
+        outputSpeech: { type: 'SSML', ssml: '<speak>Goodbye!</speak>' },
+      },
     });
   });
 });
@@ -38,8 +38,8 @@ test('StopIntent', t => {
       version: '1.0',
       response: {
         shouldEndSession: true,
-        outputSpeech: { 'type': 'SSML', 'ssml': '<speak>Goodbye!</speak>' }
-      }
+        outputSpeech: { type: 'SSML', ssml: '<speak>Goodbye!</speak>' },
+      },
     });
   });
 });

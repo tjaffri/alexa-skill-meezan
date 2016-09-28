@@ -28,12 +28,13 @@ npm test
 npm run package
 ```
 
-This creates `build/package.zip` containing the compiled skill - this can be uploaded directly to AWS Lambda. It exposes a single function `index.hander`. Skill utterances defined in the `model` directory are expanded and output to `build/UTTERANCES`.
+This creates `build/package.zip` containing the compiled skill. It exposes a single function `index.hander`. Skill utterances defined in the `model` directory are expanded and output to `build/UTTERANCES`.
 
 ### Deploy
 
-```bash
-npm run deploy
-```
+The project is set to deploy automatically to AWS lambda, via Travis CI. However, if you want to deploy manually for any reason
+you can follow the following steps:
 
-If you configure the project with AWS credentials then you can build, test, package and deploy the project with a single command. You can check it out in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/meezan).
+1. Build the `build/package.zip` as noted above and manually upload it to Lambda at: https://console.aws.amazon.com/lambda/home
+2. If you have changed any files in `models/**` at all, you need to go to https://developer.amazon.com/edw/home.html and update the Interaction model
+for the Alexa Skill. 

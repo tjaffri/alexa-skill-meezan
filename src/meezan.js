@@ -1,6 +1,7 @@
 import { Skill, Launch, Intent } from 'alexa-annotations';
 import { say, ask } from 'alexa-response';
 import { ssml } from 'alexa-ssml';
+import request from 'request-promise';
 
 @Skill
 export default class Meezan {
@@ -12,11 +13,16 @@ export default class Meezan {
   }
 
   @Intent('VerseCountIntent')
-  verseCount({ Chapter = 1 }) {
-
+  async verseCount({ Chapter = 1 }) {
     let speechOutput = `Sorry, I don\'t know anything about chapter ${Chapter}... check back later, I\'m always learning!`;
-    if (Number(Chapter) === 1) {
-      speechOutput = 'Surah Fatiha has 7 verses.';
+
+    try {
+      // Fetch info about requested chapter and build dynamic response.
+      const response = await request.get('http://meezanapi.azurewebsites.net/chapters/1');
+      const chapterInfo = JSON.parse(response);
+      speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en} has ${chapterInfo.ayas} verses.`;
+    } catch (err) {
+      speechOutput = `Hmm, I ran into a problem and could not process your request. Please try again later. More information: ${err}`;
     }
 
     return say(speechOutput).card({ title: 'Meezan', content: speechOutput });
@@ -29,7 +35,6 @@ export default class Meezan {
 
   @Intent('AMAZON.HelpIntent')
   help() {
-
     let speechOutput = '';
     speechOutput += 'Here are some things you can say: ';
     speechOutput += 'Tell me how many verses are in chapter 1 of the Holy Quran. ';

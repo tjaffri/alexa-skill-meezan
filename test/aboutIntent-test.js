@@ -1,6 +1,6 @@
 import test from 'ava';
-import { handler as Skill } from '..';
 import { Request } from 'alexa-annotations';
+import { handler as Skill } from '..';
 
 test('AboutIntent', t => {
   const event = Request.intent('AboutIntent').build();

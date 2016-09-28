@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "arrow-parens": "off",
+    "no-unused-expressions": 0,
+    "padded-blocks": 0,
+    "no-console": "off"
+  }
+}
