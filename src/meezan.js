@@ -13,12 +13,12 @@ export default class Meezan {
   }
 
   @Intent('VerseCountIntent')
-  async verseCount({ Chapter = 1 }) {
+  async verseCount({ Chapter }) {
     let speechOutput = `Sorry, I don\'t know anything about chapter ${Chapter}... check back later, I\'m always learning!`;
 
     try {
       // Fetch info about requested chapter and build dynamic response.
-      const response = await request.get('http://meezanapi.azurewebsites.net/chapters/1');
+      const response = await request.get(`http://meezanapi.azurewebsites.net/chapters/${Chapter}`);
       const chapterInfo = JSON.parse(response);
       speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en} has ${chapterInfo.ayas} verses.`;
     } catch (err) {
