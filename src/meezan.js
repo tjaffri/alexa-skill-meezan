@@ -1,7 +1,7 @@
 import { Skill, Launch, Intent } from 'alexa-annotations';
-import { say, ask, DirectiveType } from 'alexa-response';
 import { ssml } from 'alexa-ssml';
 import request from 'request-promise';
+import { say, ask, DirectiveType } from './privates/alexa-response/index.min';
 
 @Skill
 export default class Meezan {
