@@ -15,8 +15,6 @@ test('AboutIntent', t => {
     t.truthy(response.response.shouldEndSession);
     t.truthy(response.response.outputSpeech);
     t.is(response.response.outputSpeech.type, 'PlainText');
-    t.truthy(response.response.card);
-    t.is(response.response.card.type, 'Simple');
 
     // Test about content is well formed.
     t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
