@@ -28,6 +28,13 @@ export default class Meezan {
     return say(speechOutput).card({ title: 'Meezan', content: speechOutput });
   }
 
+  @Intent('ChapterCountIntent')
+  async chapterCount() {
+    const speechOutput = 'The Holy Quran contains 114 chapters, called "Surahs" in Arabic';
+
+    return say(speechOutput).card({ title: 'Meezan', content: speechOutput });
+  }
+
   @Launch
   async launch() {
     return say('Meezan launched!');

@@ -2,12 +2,11 @@ import test from 'ava';
 import { Request } from 'alexa-annotations';
 import { handler as Skill } from '..';
 
-test('AboutIntent', t => {
-  const event = Request.intent('AboutIntent').build();
+test('ChapterCountIntent', t => {
+  const event = Request.intent('ChapterCountIntent').build();
 
   return Skill(event).then(response => {
-
-    const expectedText = 'Meezan is a';
+    const expectedText = 'The Holy Quran contains 114 chapters';
 
     // Test structure and version of response.
     t.is(response.version, '1.0');
@@ -18,7 +17,7 @@ test('AboutIntent', t => {
     t.truthy(response.response.card);
     t.is(response.response.card.type, 'Simple');
 
-    // Test about content is well formed.
+    // Test response content is well formed.
     t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
   });
 });

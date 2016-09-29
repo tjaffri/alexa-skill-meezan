@@ -56,7 +56,6 @@ test('HelpIntent', t => {
     t.truthy(response.response);
     t.falsy(response.response.shouldEndSession);
     t.truthy(response.response.outputSpeech);
-    t.truthy(response.response.outputSpeech);
     t.is(response.response.outputSpeech.type, 'PlainText');
     t.falsy(response.response.card);
 
