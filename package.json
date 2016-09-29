@@ -16,7 +16,7 @@
     "build:skill": "webpack -p --config config/webpack.config.babel.js",
     "build:utterances": "mkdir -p build && bin/utterances --schema model/schema.json --utterances model/UTTERANCES --dictionary model/dictionary.json > build/UTTERANCES",
     "pretest": "npm run build",
-    "test": "cross-env BABEL_ENV=test nyc ava --concurrency=5",
+    "test": "cross-env BABEL_ENV=test nyc ava --concurrency=2",
     "posttest": "npm run lint",
     "prepackage": "npm run test",
     "package": "bestzip build/package.zip build/index.js build/UTTERANCES"
