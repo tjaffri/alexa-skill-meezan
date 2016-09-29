@@ -16,6 +16,11 @@ test('AboutIntent', t => {
     t.truthy(response.response.outputSpeech);
     t.is(response.response.outputSpeech.type, 'PlainText');
 
+    // audio directive tacked on temporarily for testing.
+    t.truthy(response.response.directives);
+    t.is(response.response.directives.length, 1);
+    t.is(response.response.directives[0].type, 'AudioPlayer.Play');
+
     // Test about content is well formed.
     t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
   });
