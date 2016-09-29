@@ -13,6 +13,7 @@ export default class Meezan {
       .audio({
         type: DirectiveType.Play,
         url: 'http://www.everyayah.com/data/Alafasy_64kbps/001000.mp3',
+        token: 'something',
         offsetInMilliseconds: 0,
       });
   }
