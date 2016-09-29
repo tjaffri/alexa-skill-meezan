@@ -8,7 +8,7 @@
   "description": "An Alexa skill for the Amazon Echo.",
   "license": "MIT",
   "main": "build/index.js",
-  "repository": "axis-tip/alexa-skill-meezan",
+  "repository": "tjaffri/alexa-skill-meezan",
   "scripts": {
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test tools",
