@@ -10,7 +10,6 @@ export default class Meezan {
   async about() {
     const aboutText = 'Meezan is a Quran skill for Alexa. An audio file follows.';
     return say(aboutText)
-      .card({ title: 'Meezan', content: aboutText })
       .audio({
         type: DirectiveType.Play,
         url: 'http://www.everyayah.com/data/Alafasy_64kbps/001000.mp3',
@@ -56,6 +55,11 @@ export default class Meezan {
     speechOutput += 'So, how can I help?';
 
     return ask(speechOutput).reprompt('So, how can I help?');
+  }
+
+  @Intent('AMAZON.ResumeIntent', 'AMAZON.PauseIntent')
+  async notImplemented() {
+    return say('Sorry, I don\'t know how to do that yet!');
   }
 
   @Intent('AMAZON.CancelIntent', 'AMAZON.StopIntent')

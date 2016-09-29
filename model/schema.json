@@ -16,6 +16,12 @@
       "intent": "AboutIntent"
     },
     {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
       "intent": "AMAZON.CancelIntent"
     },
     {
