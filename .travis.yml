@@ -16,6 +16,8 @@ deploy:
   function_name: Meezan
   role: arn:aws:iam::515409306160:role/service-role/lambda_basic_execution
   handler_name: handler
+  memory_size: 512,
+  timeout: 12,
   runtime: nodejs4.3
   zip: build/package.zip
   access_key_id: AKIAJQVBOZTDAL4YX2FQ
