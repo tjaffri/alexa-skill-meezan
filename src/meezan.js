@@ -8,7 +8,7 @@ export default class Meezan {
 
   @Intent('AboutIntent')
   async about() {
-    const aboutText = 'Meezan is a Quran skill for Alexa.';
+    const aboutText = 'Meezan is a Quran skill for Alexa. An audio file follows.';
     return say(aboutText)
       .card({ title: 'Meezan', content: aboutText })
       .audio({

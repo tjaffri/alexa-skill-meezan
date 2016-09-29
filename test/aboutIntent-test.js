@@ -7,7 +7,7 @@ test('AboutIntent', t => {
 
   return Skill(event).then(response => {
 
-    const expectedText = 'Meezan is a';
+    const expectedText = 'Meezan is a Quran skill for Alexa. An audio file follows.';
 
     // Test structure and version of response.
     t.is(response.version, '1.0');
