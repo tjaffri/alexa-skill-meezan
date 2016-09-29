@@ -7,7 +7,7 @@ import request from 'request-promise';
 export default class Meezan {
 
   @Intent('AboutIntent')
-  about() {
+  async about() {
     const aboutText = 'Meezan is a Quran skill for Alexa.';
     return say(aboutText).card({ title: 'Meezan', content: aboutText });
   }
@@ -29,12 +29,12 @@ export default class Meezan {
   }
 
   @Launch
-  launch() {
+  async launch() {
     return say('Meezan launched!');
   }
 
   @Intent('AMAZON.HelpIntent')
-  help() {
+  async help() {
     let speechOutput = '';
     speechOutput += 'Here are some things you can say: ';
     speechOutput += 'Tell me how many verses are in chapter 1 of the Holy Quran. ';
@@ -46,7 +46,7 @@ export default class Meezan {
   }
 
   @Intent('AMAZON.CancelIntent', 'AMAZON.StopIntent')
-  stop() {
+  async stop() {
     return say(<speak>Goodbye!</speak>);
   }
 }
