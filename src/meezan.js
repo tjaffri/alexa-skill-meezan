@@ -1,5 +1,5 @@
 import { Skill, Launch, Intent } from 'alexa-annotations';
-import { say, ask } from 'alexa-response';
+import { say, ask, DirectiveType } from 'alexa-response';
 import { ssml } from 'alexa-ssml';
 import request from 'request-promise';
 
@@ -9,7 +9,13 @@ export default class Meezan {
   @Intent('AboutIntent')
   async about() {
     const aboutText = 'Meezan is a Quran skill for Alexa.';
-    return say(aboutText).card({ title: 'Meezan', content: aboutText });
+    return say(aboutText)
+      .card({ title: 'Meezan', content: aboutText })
+      .audio({
+        type: DirectiveType.Play,
+        url: 'http://www.everyayah.com/data/Alafasy_64kbps/001000.mp3',
+        offsetInMilliseconds: 0,
+      });
   }
 
   @Intent('VerseCountIntent')
