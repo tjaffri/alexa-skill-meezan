@@ -12,7 +12,7 @@ export default class Meezan {
     return say(aboutText)
       .audio({
         type: DirectiveType.Play,
-        url: 'http://www.everyayah.com/data/Alafasy_64kbps/001000.mp3',
+        url: 'https://meezanapi.azurewebsites.net/audio/001000.mp3',
         token: 'something',
         offsetInMilliseconds: 0,
       });
