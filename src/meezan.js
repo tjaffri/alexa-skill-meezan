@@ -1,7 +1,7 @@
 import { Skill, Launch, Intent } from 'alexa-annotations';
 import { ssml } from 'alexa-ssml';
 import request from 'request-promise';
-import { say, ask, DirectiveType } from './privates/alexa-response/index.min';
+import { say, ask, AudioPlayer } from 'alexa-response';
 
 @Skill
 export default class Meezan {
@@ -10,12 +10,12 @@ export default class Meezan {
   async about() {
     const aboutText = 'Meezan is a Quran skill for Alexa. An audio file follows.';
     return say(aboutText)
-      .audio({
-        type: DirectiveType.Play,
-        url: 'https://meezanapi.azurewebsites.net/audio/001000.mp3',
-        token: 'something',
-        offsetInMilliseconds: 0,
-      });
+      .directives(AudioPlayer.play(
+        {
+          url: 'https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/001001.mp3',
+          token: 'something',
+          offsetInMilliseconds: 0,
+        }));
   }
 
   @Intent('VerseCountIntent')
