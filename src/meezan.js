@@ -8,14 +8,8 @@ export default class Meezan {
 
   @Intent('AboutIntent')
   async about() {
-    const aboutText = 'Meezan is a Quran skill for Alexa. An audio file follows.';
-    return say(aboutText)
-      .directives(AudioPlayer.play(
-        {
-          url: 'https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/001001.mp3',
-          token: 'something',
-          offsetInMilliseconds: 0,
-        }));
+    const aboutText = 'Meezan is a Quran skill for Alexa.';
+    return say(aboutText);
   }
 
   @Intent('VerseCountIntent')
@@ -39,6 +33,22 @@ export default class Meezan {
     const speechOutput = 'The Holy Quran contains 114 chapters, called "Surahs" in Arabic';
 
     return say(speechOutput).card({ title: 'Meezan', content: speechOutput });
+  }
+
+  @Intent('PlayVerseIntent')
+  async playVerse({ Chapter, Verse }) {
+    const speechOutput = `Reciting chapter ${Chapter}, verse ${Verse} in Arabic.`;
+    const paddedChapterString = Chapter.padStart(3, '0');
+    const paddedVerseString = Verse.padStart(3, '0');
+    const token = { Chapter, Verse };
+
+    return say(speechOutput)
+      .directives(AudioPlayer.play(
+        {
+          url: `https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/${paddedChapterString}${paddedVerseString}.mp3`,
+          token: JSON.stringify(token),
+          offsetInMilliseconds: 0,
+        }));
   }
 
   @Launch

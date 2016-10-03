@@ -1,6 +1,19 @@
 {
   "intents": [
     {
+      "intent": "PlayVerseIntent",
+      "slots": [
+        {
+          "name": "Chapter",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Verse",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
       "intent": "VerseCountIntent",
       "slots": [
         {

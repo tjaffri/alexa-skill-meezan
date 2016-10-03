@@ -36,3 +36,27 @@ ChapterCountIntent how many Suras are there in the Quran
 ChapterCountIntent how many Surats are there in the Quran
 ChapterCountIntent how many Sections are there in the Quran
 
+PlayVerseIntent recite chapter {Chapter} verse {Verse} of the Holy Quran
+PlayVerseIntent play chapter {Chapter} verse {Verse} of the Holy Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} of the Holy Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} of the Holy Quran
+PlayVerseIntent recite chapter {Chapter} verse {Verse} in the Holy Quran
+PlayVerseIntent play chapter {Chapter} verse {Verse} in the Holy Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} in the Holy Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} in the Holy Quran
+PlayVerseIntent recite chapter {Chapter} verse {Verse} of the Quran
+PlayVerseIntent play chapter {Chapter} verse {Verse} of the Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} of the Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} of the Quran
+PlayVerseIntent recite chapter {Chapter} verse {Verse} in the Quran
+PlayVerseIntent play chapter {Chapter} verse {Verse} in the Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} in the Quran
+PlayVerseIntent recite verse {Verse} of chapter {Chapter} in the Quran
+PlayVerseIntent recite chapter {Chapter} verse {Verse}
+PlayVerseIntent play chapter {Chapter} verse {Verse}
+PlayVerseIntent recite verse {Verse} of chapter {Chapter}
+PlayVerseIntent recite verse {Verse} of chapter {Chapter}
+PlayVerseIntent recite chapter {Chapter} verse {Verse}
+PlayVerseIntent play chapter {Chapter} verse {Verse}
+PlayVerseIntent recite verse {Verse} of chapter {Chapter}
+PlayVerseIntent recite verse {Verse} of chapter {Chapter}
