@@ -32,7 +32,29 @@ test('PlayVerseIntent', t => {
     t.is(parsedToken.Chapter, '1');
     t.is(parsedToken.Verse, '3');
 
-    // Test about content is well formed.
+    // Test content is well formed.
+    t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
+  });
+});
+
+test('PlayVerseIntent with Invalid Parameters', t => {
+  const event = Request.intent('PlayVerseIntent', { Chapter: '1', Verse: '200' }).build();
+
+  return Skill(event).then(response => {
+
+    const expectedText = 'Hmm, I ran into a problem';
+
+    // Test structure and version of response.
+    t.is(response.version, '1.0');
+    t.truthy(response.response);
+    t.truthy(response.response.shouldEndSession);
+    t.truthy(response.response.outputSpeech);
+    t.is(response.response.outputSpeech.type, 'PlainText');
+
+    // audio directive should not exist for invalid parameters
+    t.falsy(response.response.directives);
+
+    // Test content is well formed.
     t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
   });
 });

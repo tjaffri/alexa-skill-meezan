@@ -14,7 +14,7 @@ export default class Meezan {
 
   @Intent('VerseCountIntent')
   async verseCount({ Chapter }) {
-    let speechOutput = `Sorry, I don\'t know anything about chapter ${Chapter}... check back later, I\'m always learning!`;
+    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${Chapter}. Please try again later. `;
 
     try {
       // Fetch info about requested chapter and build dynamic response.
@@ -22,7 +22,7 @@ export default class Meezan {
       const chapterInfo = JSON.parse(response);
       speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en}, has ${chapterInfo.ayas} verses.`;
     } catch (err) {
-      speechOutput = `Hmm, I ran into a problem and could not process your request. Please try again later. More information: ${err}`;
+      speechOutput = `${speechOutput}. More information: ${err}`;
     }
 
     return say(speechOutput).card({ title: 'Meezan', content: speechOutput });
@@ -37,18 +37,33 @@ export default class Meezan {
 
   @Intent('PlayVerseIntent')
   async playVerse({ Chapter, Verse }) {
-    const speechOutput = `Reciting chapter ${Chapter}, verse ${Verse} in Arabic.`;
-    const paddedChapterString = Chapter.padStart(3, '0');
-    const paddedVerseString = Verse.padStart(3, '0');
-    const token = { Chapter, Verse };
+    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${Chapter}. Please try again later. `;
 
-    return say(speechOutput)
-      .directives(AudioPlayer.play(
-        {
-          url: `https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/${paddedChapterString}${paddedVerseString}.mp3`,
-          token: JSON.stringify(token),
-          offsetInMilliseconds: 0,
-        }));
+    try {
+      // Fetch info about requested chapter and build dynamic response.
+      const response = await request.get(`http://meezanapi.azurewebsites.net/chapters/${Chapter}`);
+      const chapterInfo = JSON.parse(response);
+
+      if (!chapterInfo || Verse < 1 || Verse > chapterInfo.ayas) {
+        throw new Error('Invalid Chapter or Verse.');
+      } else {
+        speechOutput = `Reciting chapter ${Chapter}, verse ${Verse} in Arabic.`;
+        const paddedChapterString = Chapter.padStart(3, '0');
+        const paddedVerseString = Verse.padStart(3, '0');
+        const token = { Chapter, Verse };
+
+        return say(speechOutput)
+          .directives(AudioPlayer.play(
+            {
+              url: `https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/${paddedChapterString}${paddedVerseString}.mp3`,
+              token: JSON.stringify(token),
+              offsetInMilliseconds: 0,
+            }));
+      }
+    } catch (err) {
+      speechOutput = `${speechOutput} More information: ${err}`;
+      return say(speechOutput);
+    }
   }
 
   @Launch
