@@ -59,10 +59,11 @@ export default class Meezan {
   @Intent('AMAZON.HelpIntent')
   async help() {
     let speechOutput = '';
-    speechOutput += 'Here are some things you can say: ';
-    speechOutput += 'Tell me how many verses are in chapter 1 of the Holy Quran. ';
-    speechOutput += 'Tell me about the skill developer. ';
-    speechOutput += 'You can also say stop if you\'re done. ';
+    speechOutput += 'Here are some things you can say: \n';
+    speechOutput += '- Tell me how many verses are in chapter 1 of the Holy Quran. \n';
+    speechOutput += '- Recite chapter 1, verse 2 of the Holy Quran. \n';
+    speechOutput += '- Tell me about the skill developer. \n';
+    speechOutput += '- You can also say stop if you\'re done. \n';
     speechOutput += 'So, how can I help?';
 
     return ask(speechOutput).reprompt('So, how can I help?');
