@@ -37,8 +37,8 @@ test('PlayVerseNumberByChapterNameIntent', t => {
   });
 });
 
-test('PlayVerseByNumbersIntent with Invalid Parameters', t => {
-  const event = Request.intent('PlayVerseByNumbersIntent', { ChapterNumber: '1', VerseNumber: '200' }).build();
+test('PlayVerseNumberByChapterNameIntent with Invalid Parameters', t => {
+  const event = Request.intent('PlayVerseNumberByChapterNameIntent', { ChapterName: 'Invalid', VerseNumber: '200' }).build();
 
   return Skill(event).then(response => {
 
