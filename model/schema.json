@@ -1,29 +1,69 @@
 {
   "intents": [
     {
-      "intent": "PlayVerseIntent",
+      "intent": "ChapterCountIntent"
+    },
+    {
+      "intent": "ChapterInfoByNumberIntent",
       "slots": [
         {
-          "name": "Chapter",
+          "name": "ChapterNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "ChapterInfoByNameIntent",
+      "slots": [
+        {
+          "name": "ChapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        }
+      ]
+    },
+    {
+      "intent": "PlayChapterByNumberIntent",
+      "slots": [
+        {
+          "name": "ChapterNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "PlayChapterByNameIntent",
+      "slots": [
+        {
+          "name": "ChapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        }
+      ]
+    },
+    {
+      "intent": "PlayVerseByNumbersIntent",
+      "slots": [
+        {
+          "name": "ChapterNumber",
           "type": "AMAZON.NUMBER"
         },
         {
-          "name": "Verse",
+          "name": "VerseNumber",
           "type": "AMAZON.NUMBER"
         }
       ]
     },
     {
-      "intent": "VerseCountIntent",
+      "intent": "PlayVerseNumberByChapterNameIntent",
       "slots": [
         {
-          "name": "Chapter",
+          "name": "ChapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        },
+        {
+          "name": "VerseNumber",
           "type": "AMAZON.NUMBER"
         }
       ]
-    },
-    {
-      "intent": "ChapterCountIntent"
     },
     {
       "intent": "AboutIntent"

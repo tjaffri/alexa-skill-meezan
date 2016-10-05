@@ -1,0 +1,27 @@
+{
+  "session": {
+    "new": false,
+    "sessionId": "session1234",
+    "attributes": {},
+    "user": {
+      "userId": null
+    },
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.abcd"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "intent": {
+      "slots": {
+        "Chapter": {
+          "name": "MEEZAN_CHAPTERNAME",
+          "value": "Al-Faatiha"
+        }
+      },
+      "name": "ChapterInfoByNameIntent"
+    },
+    "type": "IntentRequest",
+    "requestId": "request5678"
+  }
+}

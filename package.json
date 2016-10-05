@@ -1,6 +1,6 @@
 {
   "name": "alexa-skill-meezan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": "4.3.2",
     "npm": "3.5.0"
@@ -14,12 +14,12 @@
     "lint:fix": "eslint --fix src test tools",
     "build": "cross-env BABEL_ENV=production npm-run-all --parallel build:skill build:utterances",
     "build:skill": "webpack -p --config config/webpack.config.babel.js",
-    "build:utterances": "mkdir -p build && bin/utterances --schema model/schema.json --utterances model/UTTERANCES --dictionary model/dictionary.json > build/UTTERANCES",
+    "build:utterances": "mkdir -p build && bin/utterances --schema model/schema.json --utterances model/UTTERANCES.txt --dictionary model/dictionary.json > build/UTTERANCES.txt",
     "pretest": "npm run build",
-    "test": "cross-env BABEL_ENV=test nyc ava --concurrency=2",
+    "test": "cross-env BABEL_ENV=test nyc ava --concurrency=4",
     "posttest": "npm run lint",
     "prepackage": "npm run test",
-    "package": "bestzip build/package.zip build/index.js build/UTTERANCES"
+    "package": "bestzip build/package.zip build/index.js build/UTTERANCES.txt"
   },
   "ava": {
     "babel": "inherit",
@@ -34,7 +34,7 @@
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
-    "alexa-utterances": "^0.1.0",
+    "alexa-utterances": "^0.2.1",
     "ava": "^0.16.0",
     "babel-cli": "^6.6.5",
     "babel-eslint": "^6.0.2",

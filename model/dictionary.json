@@ -1,2 +1,38 @@
 {
+  "Quran": [
+    "Quran",
+    "Holy Quran",
+    "Glorious Quran",
+    "Quran Pak"
+  ],
+  "Chapter": [
+    "Surah",
+    "Sura",
+    "Surat",
+    "Chapter",
+    "Section"
+  ],
+  "Chapters": [
+    "Surahs",
+    "Suras",
+    "Surats",
+    "Chapters",
+    "Sections"
+  ],
+  "Verse": [
+    "Ayah",
+    "Aya",
+    "Ayat",
+    "Verse"
+  ],
+  "Verses": [
+    "Ayahs",
+    "Ayas",
+    "Ayats",
+    "Verses"
+  ],
+  "Play": [
+    "Play",
+    "Recite"
+  ]
 }

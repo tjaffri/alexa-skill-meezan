@@ -2,8 +2,8 @@ import test from 'ava';
 import { Request } from 'alexa-annotations';
 import { handler as Skill } from '..';
 
-test('PlayVerseIntent', t => {
-  const event = Request.intent('PlayVerseIntent', { Chapter: '1', Verse: '3' }).build();
+test('PlayVerseByNumbersIntent', t => {
+  const event = Request.intent('PlayVerseByNumbersIntent', { ChapterNumber: '1', VerseNumber: '3' }).build();
 
   return Skill(event).then(response => {
 
@@ -29,16 +29,16 @@ test('PlayVerseIntent', t => {
     // audio directive should contain a valid token.
     t.truthy(response.response.directives[0].audioItem.stream.token);
     const parsedToken = JSON.parse(response.response.directives[0].audioItem.stream.token);
-    t.is(parsedToken.Chapter, '1');
-    t.is(parsedToken.Verse, '3');
+    t.is(parsedToken.ChapterNumber, '1');
+    t.is(parsedToken.VerseNumber, '3');
 
     // Test content is well formed.
     t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
   });
 });
 
-test('PlayVerseIntent with Invalid Parameters', t => {
-  const event = Request.intent('PlayVerseIntent', { Chapter: '1', Verse: '200' }).build();
+test('PlayVerseByNumbersIntent with Invalid Parameters', t => {
+  const event = Request.intent('PlayVerseByNumbersIntent', { ChapterNumber: '1', VerseNumber: '200' }).build();
 
   return Skill(event).then(response => {
 

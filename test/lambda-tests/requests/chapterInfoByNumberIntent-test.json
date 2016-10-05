@@ -15,11 +15,11 @@
     "intent": {
       "slots": {
         "Chapter": {
-          "name": "Chapter",
+          "name": "ChapterNumber",
           "value": "1"
         }
       },
-      "name": "VerseCountIntent"
+      "name": "ChapterInfoByNumberIntent"
     },
     "type": "IntentRequest",
     "requestId": "request5678"
