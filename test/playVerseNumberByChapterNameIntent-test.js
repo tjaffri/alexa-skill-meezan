@@ -37,6 +37,41 @@ test('PlayVerseNumberByChapterNameIntent', t => {
   });
 });
 
+test('PlayVerseNumberByChapterNameIntent with case insensitive comparison', t => {
+  const event = Request.intent('PlayVerseNumberByChapterNameIntent', { ChapterName: 'yaseen', VerseNumber: '3' }).build();
+
+  return Skill(event).then(response => {
+
+    const expectedText = 'Reciting ';
+    const expectedUrl = 'https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/036003.mp3';
+
+    // Test structure and version of response.
+    t.is(response.version, '1.0');
+    t.truthy(response.response);
+    t.truthy(response.response.shouldEndSession);
+    t.truthy(response.response.outputSpeech);
+    t.is(response.response.outputSpeech.type, 'PlainText');
+
+    // audio directive should point to the correct mp3 file.
+    t.truthy(response.response.directives);
+    t.is(response.response.directives.length, 1);
+    t.is(response.response.directives[0].type, 'AudioPlayer.Play');
+    t.is(response.response.directives[0].playBehavior, 'REPLACE_ALL');
+    t.truthy(response.response.directives[0].audioItem);
+    t.truthy(response.response.directives[0].audioItem.stream);
+    t.is(response.response.directives[0].audioItem.stream.url, expectedUrl);
+
+    // audio directive should contain a valid token.
+    t.truthy(response.response.directives[0].audioItem.stream.token);
+    const parsedToken = JSON.parse(response.response.directives[0].audioItem.stream.token);
+    t.is(parsedToken.ChapterNumber, '36');
+    t.is(parsedToken.VerseNumber, '3');
+
+    // Test content is well formed.
+    t.truthy(response.response.outputSpeech.text.startsWith(expectedText));
+  });
+});
+
 test('PlayVerseNumberByChapterNameIntent with Invalid Parameters', t => {
   const event = Request.intent('PlayVerseNumberByChapterNameIntent', { ChapterName: 'Invalid', VerseNumber: '200' }).build();
 

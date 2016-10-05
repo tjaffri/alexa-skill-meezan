@@ -45,8 +45,8 @@ export default class Meezan {
       const allChaptersInfo = JSON.parse(response);
 
       // Search for a string or substring match (english or arabic name)
-      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(ChapterName) ||
-        c.name.en.includes(ChapterName));
+      const r = new RegExp(ChapterName, 'i');
+      const chapterInfo = allChaptersInfo.find(c => r.test(c.name.arroman) || r.test(c.name.en));
 
       if (!chapterInfo) {
         // If no luck, throw a not found error
@@ -111,8 +111,8 @@ export default class Meezan {
       const allChaptersInfo = JSON.parse(response);
 
       // Search for a string or substring match (english or arabic name)
-      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(ChapterName) ||
-        c.name.en.includes(ChapterName));
+      const r = new RegExp(ChapterName, 'i');
+      const chapterInfo = allChaptersInfo.find(c => r.test(c.name.arroman) || r.test(c.name.en));
 
       if (!chapterInfo) {
         throw new Error(`Sorry, could not find a Chapter with name matching: ${ChapterName}`);

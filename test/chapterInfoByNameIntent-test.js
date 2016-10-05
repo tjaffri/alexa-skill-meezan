@@ -33,3 +33,20 @@ test('ChapterInfoByNameIntent for Surah Yusuf ', t => {
     });
   });
 });
+
+test('ChapterInfoByNameIntent for Surah Yusuf with case insensitive comparison', t => {
+  const event = Request.intent('ChapterInfoByNameIntent', { ChapterName: 'yusuf' }).build();
+
+  return Skill(event).then(response => {
+    const expectedText = 'Chapter 12, Surah Yusuf, which means Joseph, has 111 verses. It is a Meccan revelation.';
+    t.deepEqual(response, {
+      version: '1.0',
+      response: {
+        shouldEndSession: true,
+        outputSpeech: { type: 'PlainText', text: expectedText },
+        card: { type: 'Simple', title: 'Meezan', content: expectedText },
+      },
+    });
+  });
+});
+
