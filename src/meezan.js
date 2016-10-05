@@ -123,10 +123,11 @@ export default class Meezan {
       }
 
       // No errors, proceed with response.
+      const ChapterNumber = chapterInfo.id.toString();
       speechOutput = `Reciting chapter ${ChapterName}, verse ${VerseNumber} in Arabic.`;
-      const paddedChapterString = chapterInfo.id.padStart(3, '0');
+      const paddedChapterString = ChapterNumber.padStart(3, '0');
       const paddedVerseString = VerseNumber.padStart(3, '0');
-      const token = { ChapterNumber: chapterInfo.id, VerseNumber };
+      const token = { ChapterNumber, VerseNumber };
 
       return say(speechOutput)
         .directives(AudioPlayer.play(
