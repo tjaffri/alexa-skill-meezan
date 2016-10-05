@@ -15,7 +15,7 @@
     "intent": {
       "slots": {
         "Chapter": {
-          "name": "MEEZAN_CHAPTERNAME",
+          "name": "ChapterName",
           "value": "Al-Faatiha"
         }
       },
