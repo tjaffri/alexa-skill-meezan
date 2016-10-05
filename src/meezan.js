@@ -36,8 +36,8 @@ export default class Meezan {
   }
 
   @Intent('ChapterInfoByNameIntent')
-  async chapterInfoByName({ MEEZAN_CHAPTERNAME }) {
-    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${MEEZAN_CHAPTERNAME}. Please try again later. `;
+  async chapterInfoByName({ ChapterName }) {
+    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${ChapterName}. Please try again later. `;
 
     try {
       // Fetch info about requested chapter and build dynamic response.
@@ -45,12 +45,12 @@ export default class Meezan {
       const allChaptersInfo = JSON.parse(response);
 
       // Search for a string or substring match (english or arabic name)
-      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(MEEZAN_CHAPTERNAME) ||
-        c.name.en.includes(MEEZAN_CHAPTERNAME));
+      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(ChapterName) ||
+        c.name.en.includes(ChapterName));
 
       if (!chapterInfo) {
         // If no luck, throw a not found error
-        throw new Error(`Sorry, could not find a Chapter with name matching: ${MEEZAN_CHAPTERNAME}`);
+        throw new Error(`Sorry, could not find a Chapter with name matching: ${ChapterName}`);
       }
       speechOutput = `Chapter ${chapterInfo.id}, Surah ${chapterInfo.name.arroman}, which means ${chapterInfo.name.en}, has ${chapterInfo.ayas} verses. It is a ${chapterInfo.type} revelation.`;
     } catch (err) {
@@ -66,8 +66,8 @@ export default class Meezan {
   }
 
   @Intent('PlayChapterByNameIntent')
-  async playChapterByName({ MEEZAN_CHAPTERNAME }) {
-    return say(`Sorry, I don\'t know how to do that yet! Please try later. You requested chapter: ${MEEZAN_CHAPTERNAME}`);
+  async playChapterByName({ ChapterName }) {
+    return say(`Sorry, I don\'t know how to do that yet! Please try later. You requested chapter: ${ChapterName}`);
   }
 
   @Intent('PlayVerseByNumbersIntent')
@@ -102,8 +102,8 @@ export default class Meezan {
   }
 
   @Intent('PlayVerseNumberByChapterNameIntent')
-  async playVerseNumberByChapterName({ MEEZAN_CHAPTERNAME, VerseNumber }) {
-    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${MEEZAN_CHAPTERNAME}. Please try again later. `;
+  async playVerseNumberByChapterName({ ChapterName, VerseNumber }) {
+    let speechOutput = `Hmm, I ran into a problem and could not process your request for chapter ${ChapterName}. Please try again later. `;
 
     try {
       // Fetch info about requested chapter and build dynamic response.
@@ -111,11 +111,11 @@ export default class Meezan {
       const allChaptersInfo = JSON.parse(response);
 
       // Search for a string or substring match (english or arabic name)
-      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(MEEZAN_CHAPTERNAME) ||
-        c.name.en.includes(MEEZAN_CHAPTERNAME));
+      const chapterInfo = allChaptersInfo.find(c => c.name.arroman.includes(ChapterName) ||
+        c.name.en.includes(ChapterName));
 
       if (!chapterInfo) {
-        throw new Error(`Sorry, could not find a Chapter with name matching: ${MEEZAN_CHAPTERNAME}`);
+        throw new Error(`Sorry, could not find a Chapter with name matching: ${ChapterName}`);
       }
 
       if (VerseNumber < 1 || VerseNumber > chapterInfo.ayas) {
@@ -123,7 +123,7 @@ export default class Meezan {
       }
 
       // No errors, proceed with response.
-      speechOutput = `Reciting chapter ${MEEZAN_CHAPTERNAME}, verse ${VerseNumber} in Arabic.`;
+      speechOutput = `Reciting chapter ${ChapterName}, verse ${VerseNumber} in Arabic.`;
       const paddedChapterString = chapterInfo.id.padStart(3, '0');
       const paddedVerseString = VerseNumber.padStart(3, '0');
       const token = { ChapterNumber: chapterInfo.id, VerseNumber };

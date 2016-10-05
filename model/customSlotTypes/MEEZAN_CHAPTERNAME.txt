@@ -9,10 +9,8 @@ Al-Maaida
 Maaida
 Al-An'aam
 An'aam
-Anaam
 Al-A'raaf
 A'raaf
-Araaf
 Al-Anfaal
 Anfaal
 At-Tawba
@@ -22,7 +20,6 @@ Hud
 Yusuf
 Ar-Ra'd
 Ra'd
-Raad
 Ibrahim
 Al-Hijr
 Hijr
@@ -46,7 +43,6 @@ Al-Furqaan
 Furqaan
 Ash-Shu'araa
 Shu'araa
-Shuaraa
 An-Naml
 Naml
 Al-Qasas
@@ -111,7 +107,6 @@ As-Saff
 Saff
 Al-Jumu'a
 Jumu'a
-Juma
 Al-Munaafiqoon
 Munaafiqoon
 At-Taghaabun
@@ -128,7 +123,6 @@ Al-Haaqqa
 Haaqqa
 Al-Ma'aarij
 Ma'aarij
-Maarij
 Nooh
 Al-Jinn
 Jinn
@@ -146,7 +140,6 @@ An-Naba
 Naba
 An-Naazi'aat
 Naazi'aat
-Naaziaat
 Abasa
 At-Takwir
 Takwir
@@ -162,12 +155,10 @@ At-Taariq
 Taariq
 Al-A'laa
 A'laa
-Alaa
 Al-Ghaashiya
 Ghaashiya
 Al-Fajr
 Fajr
-Fajar
 Al-Balad
 Balad
 Ash-Shams
@@ -192,12 +183,10 @@ Al-Aadiyaat
 Aadiyaat
 Al-Qaari'a
 Qaari'a
-Qaaria
 At-Takaathur
 Takaathur
 Al-Asr
 Asr
-Asar
 Al-Humaza
 Humaza
 Al-Fil
@@ -205,10 +194,8 @@ Fil
 Quraish
 Al-Maa'un
 Maa'un
-Maaun
 Al-Kawthar
 Kawthar
-Kawsar
 Al-Kaafiroon
 Kaafiroon
 An-Nasr
