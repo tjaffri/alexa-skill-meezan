@@ -1,0 +1,36 @@
+AboutIntent who {developed|built|wrote|created} it
+AboutIntent who {developed|built|wrote|created} this {skill|app}
+AboutIntent tell me{ more|} about {the|your} {developer|author|creator} {of this app|}
+AboutIntent tell me{ more|} about {the|your} {developer|author|creator}{of this skill|}
+AboutIntent what does this {skill|app|} {do|say}
+
+ChapterCountIntent how many {chapters}{ are|} in{ the|} {quran}
+
+ChapterInfoByNumberIntent {tell me |}how many {verses} {are |}in {chapter} {-|chapterNumber} {of|in} the {quran}
+ChapterInfoByNumberIntent {tell me |}how many {verses} {are |}in {chapter} {-|chapterNumber}
+ChapterInfoByNumberIntent {tell me |}{ more|} about {chapter} {-|chapterNumber} {of|in} the {quran}
+ChapterInfoByNumberIntent {tell me |}{ more|} about {chapter} {-|chapterNumber}
+
+ChapterInfoByNameIntent {tell me |}how many {verses} {are |}in {chapter} {-|chapterName} {of|in} the {quran}
+ChapterInfoByNameIntent {tell me |}how many {verses} {are |}in {chapter} {-|chapterName}
+ChapterInfoByNameIntent {tell me |}{ more|} about {chapter} {-|chapterName} {of|in} the {quran}
+ChapterInfoByNameIntent {tell me |}{ more|} about {chapter} {-|chapterName}
+
+PlayChapterByNumberIntent {play} {chapter} {-|chapterNumber} {of|in} the {quran}
+PlayChapterByNumberIntent {play} {chapter} {-|chapterNumber}
+
+PlayChapterByNameIntent {play} {chapter} {-|chapterName} {of|in} the {quran}
+PlayChapterByNameIntent {play} {chapter} {-|chapterName} {of|in} the {quran}
+PlayChapterByNameIntent {play} {chapter} {-|chapterName}
+
+PlayVerseByNumbersIntent {play} {chapter} {-|chapterNumber} {verse} {-|verseNumber} {of|in} the {quran}
+PlayVerseByNumbersIntent {play} {verse} {-|verseNumber} {chapter} {-|chapterNumber} {of|in} the {quran}
+PlayVerseByNumbersIntent {play} {chapter} {-|chapterNumber} {verse} {-|verseNumber}
+PlayVerseByNumbersIntent {play} {verse} {-|verseNumber} {chapter} {-|chapterNumber}
+
+PlayVerseNumberByChapterNameIntent {play} {chapter} {-|chapterName} {verse} {-|verseNumber} {of|in} the {quran}
+PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {chapter} {-|chapterName} {of|in} the {quran}
+PlayVerseNumberByChapterNameIntent {play} {chapter} {-|chapterName} {verse} {-|verseNumber}
+PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {chapter} {-|chapterName}
+PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {of|in} {chapter} {-|chapterName} {of|in} the {quran}
+PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {of|in} {chapter} {-|chapterName}

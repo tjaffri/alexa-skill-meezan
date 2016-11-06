@@ -1,0 +1,87 @@
+{
+  "intents": [
+    {
+      "intent": "ChapterCountIntent"
+    },
+    {
+      "intent": "ChapterInfoByNumberIntent",
+      "slots": [
+        {
+          "name": "chapterNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "ChapterInfoByNameIntent",
+      "slots": [
+        {
+          "name": "chapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        }
+      ]
+    },
+    {
+      "intent": "PlayChapterByNumberIntent",
+      "slots": [
+        {
+          "name": "chapterNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "PlayChapterByNameIntent",
+      "slots": [
+        {
+          "name": "chapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        }
+      ]
+    },
+    {
+      "intent": "PlayVerseByNumbersIntent",
+      "slots": [
+        {
+          "name": "chapterNumber",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "verseNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "PlayVerseNumberByChapterNameIntent",
+      "slots": [
+        {
+          "name": "chapterName",
+          "type": "MEEZAN_CHAPTERNAME"
+        },
+        {
+          "name": "verseNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AboutIntent"
+    },
+    {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}

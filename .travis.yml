@@ -1,0 +1,28 @@
+sudo: false
+language: node_js
+node_js:
+- 4.3.2
+branches:
+  only:
+  - master
+before_install:
+- npm install -g npm@3.10.7
+install:
+- npm install
+script:
+- npm test
+after_success:
+    - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+deploy:
+  provider: lambda
+  function_name: Meezan
+  zip: ${TRAVIS_BUILD_DIR}/build
+  role: arn:aws:iam::515409306160:role/service-role/lambda_basic_execution
+  handler_name: handler
+  memory_size: 512,
+  timeout: 12,
+  runtime: nodejs4.3
+  access_key_id: AKIAJQVBOZTDAL4YX2FQ
+  secret_access_key:
+    secure: L7Kv7RJfEgZDm/N+tBc7fTfenatjO0Ti5foRM2C6lE/2VXLy1OSYuUaapVXmH1jx46vQygE9i8okRAYwk2WP/HkAfTj6pvS8hSSHBsPZ+pFVwokKA49wPr0oj77p6FP/d7GkPZuGdmMpxy6SyHkvKQA0f0YAR2G6bR4q53QiSy0WrFB6i/LWkvs1Rq4k9wqSzD3GQHRtvSo3J3WlRp3IKcBWOwrML+/o5E+dA2pU4FgGuJH9LdwT6ciOYI/LLR8/m40FHXpdb646D1Ca3C6pH7tQfwwFmDdFCfdeJXKjSevlBmnRv63MCuomeko5FoC/jZeMtS6uYa1im9RBU7P9Rnuq1E3H+29neq4jiTzuJFjkJvR5tA2S2LNTsuD3H2MdsmKNAU9ji4/RgSXo/+eUNbx7U6e51V2tZjsTbSPS0dgAP/V+dCOuvAJRL3Z//AyfBVEAtGqHZxunajbKFSVGcQj2HKE6or7luNZWEJv1roi9X8cjWDLpBSXpjOx3ofxKDv1d0H/iEPBdjSa1bj6d0KZJzlalD4jSAuB+MsufoJ2s8lzqOcCUNrPRJkeURuvEhRwg0If4ejNjgOk5IsqmgFGS+xgmQUSxkWdwT3JnLrwzsR6bQ/1LmFNsuLVbnWJpwy2rZBwzyMgQIPNhbg7fSr1bBN5MCEP93iQF65DG3H4=
+

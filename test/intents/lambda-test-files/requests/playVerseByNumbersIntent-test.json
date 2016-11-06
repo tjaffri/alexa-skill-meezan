@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.test1234",
+    "application": {
+      "applicationId": "amzn1.ask.skill.test1234"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.test.1234"
+    }
+  },
+  "request": {
+    "intent": {
+      "slots": {
+        "ChapterNumber": {
+          "name": "ChapterNumber",
+          "value": "1"
+        },
+        "VerseNumber": {
+          "name": "VerseNumber",
+          "value": "3"
+        }
+      },
+      "name": "PlayVerseByNumbersIntent"
+    },
+    "type": "IntentRequest",
+    "requestId": "request5678"
+  }
+}

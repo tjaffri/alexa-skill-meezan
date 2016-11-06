@@ -1,0 +1,28 @@
+{
+  "quran": [
+    "Quran",
+    "Holy Quran"
+  ],
+  "chapter": [
+    "sura",
+    "chapter",
+    "section"
+  ],
+  "chapters": [
+    "suras",
+    "chapters",
+    "sections"
+  ],
+  "verse": [
+    "aya",
+    "verse"
+  ],
+  "verses": [
+    "ayas",
+    "verses"
+  ],
+  "play": [
+    "play",
+    "recite"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "context": {
+    "AudioPlayer": {
+      "offsetInMilliseconds": 0,
+      "token": "{\"chapterNumber\":1,\"verseNumber\":1}",
+      "playerActivity": "PLAYING"
+    },
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.test1234"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.test.1234"
+      },
+      "device": {
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      }
+    }
+  },
+  "request": {
+    "type": "AudioPlayer.PlaybackStarted",
+    "requestId": "request5678",
+    "timestamp": "2016-10-24T18:22:22Z",
+    "locale": "en-US",
+    "token": "{\"chapterNumber\":1,\"verseNumber\":1}",
+    "offsetInMilliseconds": 0
+  }
+}
