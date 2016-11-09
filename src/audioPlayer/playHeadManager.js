@@ -32,6 +32,9 @@ export default class PlayHeadManager {
     const options = {
       method: 'PUT',
       uri: `${MeezanApiUri}/v1/oauth/playHeads/${userId}`,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
       body: playHead,
       json: true, // Automatically stringifies the body to JSON
     };
@@ -50,6 +53,9 @@ export default class PlayHeadManager {
     const options = {
       method: 'DELETE',
       uri: `${MeezanApiUri}/v1/oauth/playHeads/${userId}`,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     };
 
     console.log(`**** Deleting playhead state: ${JSON.stringify(options)}`);

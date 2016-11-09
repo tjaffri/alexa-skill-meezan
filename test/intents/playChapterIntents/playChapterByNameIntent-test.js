@@ -3,8 +3,13 @@ import Request from 'alexa-request';
 import uuid from 'node-uuid';
 
 import PlayHeadManager from '../../../src/audioPlayer/playHeadManager';
-import { AudioFilesUri, TestAccountAccessToken } from '../../definitions.json';
+import { AudioFilesUri } from '../../definitions.json';
 import Skill from '../../../src/index';
+
+const TestAccountAccessToken = process.env.AUTH0_ACCESS_TOKEN;
+if (!TestAccountAccessToken) {
+  throw new Error('Auth0 Access Token ENV not set.');
+}
 
 test('PlayChapterByNameIntent for Surah Fatiha (Special Case: Bismillah Included)', async t => {
   // Set up the request object used in each test with a random user name so it does not
