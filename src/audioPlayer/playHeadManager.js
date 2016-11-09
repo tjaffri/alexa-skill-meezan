@@ -18,8 +18,6 @@ export default class PlayHeadManager {
       json: true, // Automatically parses the JSON string in the response
     };
 
-    console.log(`**** Getting playhead state: ${JSON.stringify(options)}`);
-
     return await requestpromise(options);
   }
 
@@ -39,8 +37,6 @@ export default class PlayHeadManager {
       json: true, // Automatically stringifies the body to JSON
     };
 
-    console.log(`**** Setting playhead state: ${JSON.stringify(options)}`);
-
     return await requestpromise(options);
   }
 
@@ -57,8 +53,6 @@ export default class PlayHeadManager {
         Authorization: `Bearer ${accessToken}`,
       },
     };
-
-    console.log(`**** Deleting playhead state: ${JSON.stringify(options)}`);
 
     return await requestpromise(options);
   }
