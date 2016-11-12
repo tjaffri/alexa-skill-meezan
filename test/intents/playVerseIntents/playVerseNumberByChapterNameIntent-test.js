@@ -4,12 +4,16 @@ import uuid from 'node-uuid';
 
 import PlayHeadManager from '../../../src/audioPlayer/playHeadManager';
 import { AudioFilesUri } from '../../definitions.json';
+import getTestAccessToken from '../../helpers/getTestAccessToken';
 import Skill from '../../../src/index';
 
-const TestAccountAccessToken = process.env.AUTH0_ACCESS_TOKEN;
-if (!TestAccountAccessToken) {
-  throw new Error('Auth0 Access Token ENV not set.');
-}
+let TestAccountAccessToken;
+
+// Get a test access token before running tests in this file
+test.before(async t => {
+  TestAccountAccessToken = await getTestAccessToken();
+  t.truthy(TestAccountAccessToken);
+});
 
 test('PlayVerseNumberByChapterNameIntent', async t => {
   // Set up the request object used in each test with a random user name so it does not

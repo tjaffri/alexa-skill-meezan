@@ -18,11 +18,37 @@ See `model/UTTERANCES` for more example phrases.
 
 ## Development
 
-### Test
+### Test Automation
+
+Test automation for this skill requires credentials for a test account that the ``MeezanApi`` will accept. By default
+the API is configured to be ``http://meezanapi.azurewebsites.net`` but you can change this to a different URI and provide
+test account credentials that will be accepted at your API.
+
+The following test account credentials are read from environment variables. For convenience you may want to create a file 
+called ``.env-auth0.sh`` with the test account credentials so you can set these during development (the CI server sets these
+values in the build environment to run CI tests successfully)
+
+```sh
+#!/bin/sh
+
+AUTH0_ACCESS_TOKEN_URI=https://[YOUR NAME SPACE ON AUTH0].auth0.com/oauth/token
+AUTH0_CLIENT_ID=[YOUR CLIENT ID]
+AUTH0_CLIENT_SECRET=[YOUR CLIENT SECRET]
+TEST_ACCOUNT_REFRESH_TOKEN=[YOUR REFRESH TOKEN]
+
+export AUTH0_ACCESS_TOKEN_URI
+export AUTH0_CLIENT_ID
+export AUTH0_CLIENT_SECRET
+export TEST_ACCOUNT_REFRESH_TOKEN
+```
+
+Once the environment is set up you can run the following command to run the tests locally.
 
 ```bash
 npm test
 ```
+
+> **Note:** You may with to follow the discussion [here](https://auth0.com/forum/t/using-auth0-for-amazon-alexa-account-linking/3911) to configure your auth0 environment.
 
 ### Building
 
@@ -39,26 +65,25 @@ This creates the following build artifacts:
 
 This repository is set to deploy automatically to AWS lambda, via Travis CI. Any commits to master will get automatically built, tested and deployed.
 
-However, if you want to deploy manually for any reason, you can follow the following steps:
+However, if you want to deploy manually for any reason, you have two options:
 
-1. Zip up the `build/release/` directory into `package.zip` and manually upload it to Lambda at: https://console.aws.amazon.com/lambda/home
-2. If you have changed any files in `model/**` at all, you need to go to https://developer.amazon.com/edw/home.html and update the Interaction model
-for the Alexa Skill. You can use the expanded utterances in `build/UTTERANCES.txt` as well as the schema and custom slot data under `model/**`.
+#### Manual Deployment in the Developer Console
 
-#### TODO: Incorporate the items below
-
-### Package
-
+1. Package up your skill by running:
 ```bash
 npm run package
 ```
 
-This creates `build/package.zip` containing the compiled skill - this can be uploaded directly to AWS Lambda. It exposes a single function `index.hander`. Skill utterances defined in the `model` directory are expanded and output to `build/UTTERANCES`.
+2. This creates `build/package.zip` containing the compiled skill, which can be uploaded directly to AWS Lambda. It exposes a single function `index.hander`. Skill utterances defined in the `model` directory are expanded and output to `build/UTTERANCES`.
+3. Manually upload `package.zip` it to Lambda at: https://console.aws.amazon.com/lambda/home
+4. If you have changed any files in `model/**` at all, you need to go to https://developer.amazon.com/edw/home.html and update the Interaction model
+for the Alexa Skill. You can use the expanded utterances in `build/UTTERANCES.txt` as well as the schema and custom slot data under `model/**`.
 
-### Deploy
+#### Manual Deployment via Local Deployment Script
+
+If you configure the project with AWS credentials under ``config/lambda.config.js`` then you can build, test, package and deploy the project with a single command.
+You can then configure the deployed skill in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/meezan).
 
 ```bash
 npm run deploy
 ```
-
-If you configure the project with AWS credentials then you can build, test, package and deploy the project with a single command. You can check it out in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/meezan).
