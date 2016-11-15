@@ -5,17 +5,19 @@ export default async function getTestAccessToken() {
   const Auth0AccessTokenUri = process.env.AUTH0_ACCESS_TOKEN_URI;
   const Auth0ClientId = process.env.AUTH0_CLIENT_ID;
   const Auth0ClientSecret = process.env.AUTH0_CLIENT_SECRET;
-  const TestAccountRefreshToken = process.env.TEST_ACCOUNT_REFRESH_TOKEN;
+  const TestAccountUserName = process.env.TEST_ACCOUNT_USERNAME;
+  const TestAccountPassword = process.env.TEST_ACCOUNT_PASSWORD;
 
-  if (!Auth0AccessTokenUri || !Auth0ClientId || !Auth0ClientSecret || !TestAccountRefreshToken) {
+  if (!Auth0AccessTokenUri || !Auth0ClientId || !Auth0ClientSecret || !TestAccountUserName || !TestAccountPassword) {
     throw new Error('Auth0 Access Token Uri, Client Credentials or Test Account Refresh Token Environment Variables not set.');
   }
 
   const postBody = {
     client_id: Auth0ClientId,
     client_secret: Auth0ClientSecret,
-    refresh_token: TestAccountRefreshToken,
-    grant_type: 'refresh_token',
+    username: TestAccountUserName,
+    password: TestAccountPassword,
+    grant_type: 'password',
   };
 
   const options = {

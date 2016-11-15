@@ -34,12 +34,14 @@ values in the build environment to run CI tests successfully)
 AUTH0_ACCESS_TOKEN_URI=https://[YOUR NAME SPACE ON AUTH0].auth0.com/oauth/token
 AUTH0_CLIENT_ID=[YOUR CLIENT ID]
 AUTH0_CLIENT_SECRET=[YOUR CLIENT SECRET]
-TEST_ACCOUNT_REFRESH_TOKEN=[YOUR REFRESH TOKEN]
+TEST_ACCOUNT_USERNAME=[YOUR TEST ACCOUNT USERNAME]
+TEST_ACCOUNT_PASSWORD=[YOUR TEST ACCOUNT PASSWORD]
 
 export AUTH0_ACCESS_TOKEN_URI
 export AUTH0_CLIENT_ID
 export AUTH0_CLIENT_SECRET
-export TEST_ACCOUNT_REFRESH_TOKEN
+export TEST_ACCOUNT_USERNAME
+export TEST_ACCOUNT_PASSWORD
 ```
 
 Once the environment is set up you can run the following command to run the tests locally.
@@ -48,7 +50,8 @@ Once the environment is set up you can run the following command to run the test
 npm test
 ```
 
-> **Note:** You may with to follow the discussion [here](https://auth0.com/forum/t/using-auth0-for-amazon-alexa-account-linking/3911) to configure your auth0 environment.
+> **Note:** You may with to follow the discussion [here](https://auth0.com/forum/t/using-auth0-for-amazon-alexa-account-linking/3911)
+to configure your auth0 environment.
 
 ### Building
 
