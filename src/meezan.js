@@ -12,6 +12,7 @@ import {
   audioPlayerPlaybackFinishedEvent,
   audioPlayerPlaybackFailedEvent,
 } from './audioPlayer/audioPlayerEventHandlers';
+import validateUserSignedIn from './auth';
 
 const AudioPlayerEvent = annotation(
   ({ request = {} }) => request.type && request.type.startsWith('AudioPlayer.'),
@@ -43,21 +44,41 @@ export default class Meezan {
 
   @Intent('PlayChapterByNumberIntent')
   async playChapterByNumber({ chapterNumber }, event) {
+    const authResponse = validateUserSignedIn(event);
+    if (!!authResponse) {
+      return authResponse;
+    }
+
     return playChapterByNumberIntent(chapterNumber, event);
   }
 
   @Intent('PlayChapterByNameIntent')
   async playChapterByName({ chapterName }, event) {
+    const authResponse = validateUserSignedIn(event);
+    if (!!authResponse) {
+      return authResponse;
+    }
+
     return playChapterByNameIntent(chapterName, event);
   }
 
   @Intent('PlayVerseByNumbersIntent')
   async playVerseByNumbers({ chapterNumber, verseNumber }, event) {
+    const authResponse = validateUserSignedIn(event);
+    if (!!authResponse) {
+      return authResponse;
+    }
+
     return playVerseByNumbersIntent(chapterNumber, verseNumber, event);
   }
 
   @Intent('PlayVerseNumberByChapterNameIntent')
   async playVerseNumberByChapterName({ chapterName, verseNumber }, event) {
+    const authResponse = validateUserSignedIn(event);
+    if (!!authResponse) {
+      return authResponse;
+    }
+
     return playVerseNumberByChapterNameIntent(chapterName, verseNumber, event);
   }
 

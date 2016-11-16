@@ -24,7 +24,7 @@ export default class PlayHeadManager {
   // Sets the playHead state for a user.
   static async setPlayHeadAsync(playHead, userId, accessToken) {
     if (!userId || !playHead || !accessToken) {
-      throw new Error(`Invalid playHead ${playHead} or user credentials ${userId} | ${accessToken}.`);
+      throw new Error(`Invalid playHead ${JSON.stringify(playHead)} or user credentials ${userId} | ${accessToken}.`);
     }
 
     const options = {

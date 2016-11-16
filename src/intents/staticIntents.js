@@ -1,13 +1,6 @@
 import { say, ask } from 'alexa-response';
 
-export async function aboutIntent(event) {
-  console.log(`ABOUT INTENT: ${JSON.stringify(event)}`);
-
-  if (!event.session.user.accessToken) {
-    const linkText = 'to start using this skill, please use the companion app to authenticate on Amazon';
-    return say(linkText).card({ type: 'LinkAccount' }).build();
-  }
-
+export async function aboutIntent() {
   const aboutText = 'Meezan is a Quran skill for Alexa.';
 
   return say(aboutText)

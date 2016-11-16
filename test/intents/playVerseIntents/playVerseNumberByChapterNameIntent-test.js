@@ -15,6 +15,29 @@ test.before(async t => {
   t.truthy(TestAccountAccessToken);
 });
 
+test('PlayVerseNumberByChapterNameIntent called by a non signed-in user', async t => {
+  const AnonymousRequest = new Request();
+  const event = AnonymousRequest.intent('PlayVerseNumberByChapterNameIntent', { chapterName: 'Faatiha', verseNumber: '3' }).build();
+
+  const response = await Skill(event);
+  const expectedResponse = {
+    version: '1.0',
+    response: {
+      shouldEndSession: true,
+      outputSpeech: {
+        type: 'PlainText',
+        text: 'To start using this skill, please use the Alexa companion app to sign in.',
+      },
+      card: {
+        type: 'LinkAccount',
+      },
+    },
+  };
+
+  // Test structure and version of response.
+  t.deepEqual(response, expectedResponse);
+});
+
 test('PlayVerseNumberByChapterNameIntent', async t => {
   // Set up the request object used in each test with a random user name so it does not
   // conflit with any other tests.
