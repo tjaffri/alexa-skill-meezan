@@ -48,7 +48,7 @@ Once the environment is set up you can run the following command to run the test
 npm test
 ```
 
-> **Note:** You may with to follow the discussion [here](https://auth0.com/forum/t/using-auth0-for-amazon-alexa-account-linking/3911)
+> **Note:** You may wish to follow the discussion [here](https://auth0.com/forum/t/using-auth0-for-amazon-alexa-account-linking/3911)
 to configure your auth0 environment.
 
 ### Building
