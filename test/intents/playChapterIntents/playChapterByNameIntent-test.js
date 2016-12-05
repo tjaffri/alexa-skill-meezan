@@ -40,7 +40,7 @@ test('PlayChapterByNameIntent called by a non signed-in user', async t => {
 
 test('PlayChapterByNameIntent for Surah Fatiha (Special Case: Bismillah Included)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNameIntent', { chapterName: 'Faatiha' }).build();
@@ -91,7 +91,7 @@ test('PlayChapterByNameIntent for Surah Fatiha (Special Case: Bismillah Included
 
 test('PlayChapterByNameIntent for Chapter 9 (Special Case, no Bismillah)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNameIntent', { chapterName: 'Tawba' }).build();
@@ -142,7 +142,7 @@ test('PlayChapterByNameIntent for Chapter 9 (Special Case, no Bismillah)', async
 
 test('PlayChapterByNameIntent for Surah Yusuf (Start with Bismillah)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNameIntent', { chapterName: 'Yusuf' }).build();

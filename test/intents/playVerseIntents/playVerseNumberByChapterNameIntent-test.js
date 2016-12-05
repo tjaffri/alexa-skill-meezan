@@ -40,7 +40,7 @@ test('PlayVerseNumberByChapterNameIntent called by a non signed-in user', async 
 
 test('PlayVerseNumberByChapterNameIntent', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayVerseNumberByChapterNameIntent', { chapterName: 'Faatiha', verseNumber: '3' }).build();
@@ -90,7 +90,7 @@ test('PlayVerseNumberByChapterNameIntent', async t => {
 
 test('PlayVerseNumberByChapterNameIntent with case insensitive comparison', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayVerseNumberByChapterNameIntent', { chapterName: 'yaseen', verseNumber: '3' }).build();
@@ -141,7 +141,7 @@ test('PlayVerseNumberByChapterNameIntent with case insensitive comparison', asyn
 
 test('PlayVerseNumberByChapterNameIntent with Invalid Parameters', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayVerseNumberByChapterNameIntent', { chapterName: 'Invalid', verseNumber: '200' }).build();

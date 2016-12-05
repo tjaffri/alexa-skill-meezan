@@ -25,7 +25,7 @@ the API is configured to be ``http://meezanapi.azurewebsites.net`` but you can c
 test account credentials that will be accepted at your API.
 
 The following test account credentials are read from environment variables. For convenience you may want to create a file 
-called ``.env-auth0.sh`` with the test account credentials so you can set these during development (the CI server sets these
+called ``tools/.env-auth0.sh`` with the test account credentials so you can set these during development (the CI server sets these
 values in the build environment to run CI tests successfully)
 
 ```sh
@@ -34,7 +34,7 @@ values in the build environment to run CI tests successfully)
 AUTH0_ACCESS_TOKEN_URI=https://[YOUR NAME SPACE ON AUTH0].auth0.com/oauth/token
 AUTH0_CLIENT_ID=[YOUR CLIENT ID]
 AUTH0_CLIENT_SECRET=[YOUR CLIENT SECRET]
-TEST_ACCOUNT_REFRESH_TOKEN=[YOUR CLIENT SECRET]
+TEST_ACCOUNT_REFRESH_TOKEN=[REFRESH TOKEN FOR A TEST ACCOUNT]
 
 export AUTH0_ACCESS_TOKEN_URI
 export AUTH0_CLIENT_ID

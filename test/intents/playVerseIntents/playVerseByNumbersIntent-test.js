@@ -40,7 +40,7 @@ test('PlayVerseByNumbersIntent called by a non signed-in user', async t => {
 
 test('PlayVerseByNumbersIntent', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayVerseByNumbersIntent', { chapterNumber: '1', verseNumber: '3' }).build();
@@ -91,7 +91,7 @@ test('PlayVerseByNumbersIntent', async t => {
 
 test('PlayVerseByNumbersIntent with Invalid Parameters', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayVerseByNumbersIntent', { chapterNumber: '1', verseNumber: '200' }).build();

@@ -41,7 +41,7 @@ test('PlayChapterByNumberIntent called by a non signed-in user', async t => {
 
 test('PlayChapterByNumberIntent for Chapter 1 (Special Case: Bismillah Included)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNumberIntent', { chapterNumber: '1' }).build();
@@ -92,7 +92,7 @@ test('PlayChapterByNumberIntent for Chapter 1 (Special Case: Bismillah Included)
 
 test('PlayChapterByNumberIntent for Chapter 9 (Special Case, no Bismillah)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNumberIntent', { chapterNumber: '9' }).build();
@@ -143,7 +143,7 @@ test('PlayChapterByNumberIntent for Chapter 9 (Special Case, no Bismillah)', asy
 
 test('PlayChapterByNumberIntent for Chapter 12 (Start with Bismillah)', async t => {
   // Set up the request object used in each test with a random user name so it does not
-  // conflit with any other tests.
+  // conflict with any other tests.
   const randomUserId = uuid.v4();
   const SignedInRequest = new Request({ session: { user: { userId: `test-user-${randomUserId}`, accessToken: TestAccountAccessToken } } });
   const event = SignedInRequest.intent('PlayChapterByNumberIntent', { chapterNumber: '12' }).build();
