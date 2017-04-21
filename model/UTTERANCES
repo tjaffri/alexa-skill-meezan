@@ -1,7 +1,7 @@
 AboutIntent who {developed|built|wrote|created} it
 AboutIntent who {developed|built|wrote|created} this {skill|app}
 AboutIntent tell me{ more|} about {the|your} {developer|author|creator} {of this app|}
-AboutIntent tell me{ more|} about {the|your} {developer|author|creator}{of this skill|}
+AboutIntent tell me{ more|} about {the|your} {developer|author|creator} {of this skill|}
 AboutIntent what does this {skill|app|} {do|say}
 
 ChapterCountIntent how many {chapters}{ are|} in{ the|} {quran}
@@ -34,3 +34,5 @@ PlayVerseNumberByChapterNameIntent {play} {chapter} {-|chapterName} {verse} {-|v
 PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {chapter} {-|chapterName}
 PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {of|in} {chapter} {-|chapterName} {of|in} the {quran}
 PlayVerseNumberByChapterNameIntent {play} {verse} {-|verseNumber} {of|in} {chapter} {-|chapterName}
+
+TestStreamIntent play {|the }test stream
