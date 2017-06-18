@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint src/**.js test/**.js",
     "build": "cross-env NODE_ENV=production npm-run-all --parallel build:skill build:utterances",
-    "build:skill": "webpack -p --config config/webpack.config.babel.js",
+    "build:skill": "webpack --config config/webpack.config.babel.js",
     "build:utterances": "mkdir -p build && bin/utterances --schema model/schema.json --utterances model/UTTERANCES --dictionary model/dictionary.json > build/UTTERANCES",
     "pretest": "npm run build",
     "test": "cross-env NODE_ENV=test nyc ava",
@@ -26,11 +26,11 @@
     ]
   },
   "dependencies": {
-    "alexa-annotations": "^9.0.1",
-    "alexa-response": "^4.0.1",
-    "babel-runtime": "^6.11.6",
-    "alexa-ssml-jsx": "^1.0.1",
-    "request-promise": "^4.1.1",
+    "alexa-annotations": "^9.1.7",
+    "alexa-response": "^4.2.9",
+    "alexa-ssml-jsx": "^2.0.3",
+    "babel-runtime": "^6.23.0",
+    "request-promise": "^4.2.1",
     "string.prototype.padstart": "^3.0.0"
   },
   "devDependencies": {

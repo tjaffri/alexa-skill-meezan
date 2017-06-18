@@ -6,6 +6,7 @@ import PlayHeadManager from '../../../src/audioPlayer/playHeadManager';
 import { AudioFilesUri } from '../../definitions.json';
 import getTestAccessToken from '../../helpers/getTestAccessToken';
 import Skill from '../../../src/index';
+import verifyAudioDirective from '../../helpers/verifyAudioDirective';
 
 let TestAccountAccessToken;
 
@@ -48,34 +49,11 @@ test('PlayChapterByNumberIntent for Chapter 1 (Special Case: Bismillah Included)
 
   const response = await Skill(event);
   const expectedText = 'Reciting ';
-
-  // Test structure and version of response.
-  t.is(response.version, '1.0');
-  t.truthy(response.response);
-  t.truthy(response.response.shouldEndSession);
-  t.truthy(response.response.outputSpeech);
-  t.is(response.response.outputSpeech.type, 'PlainText');
-
-  // audio directive should exist
-  t.truthy(response.response.directives);
-  t.is(response.response.directives.length, 1);
+  const expectedUrl = `${AudioFilesUri}/001001.mp3`;
+  const expectedToken = JSON.stringify({ chapterNumber: 1, verseNumber: 1 });
 
   // Test audio directive properties
-  const audioDirective = response.response.directives[0];
-  t.is(audioDirective.playBehavior, 'REPLACE_ALL');
-  t.is(audioDirective.type, 'AudioPlayer.Play');
-  t.truthy(audioDirective.audioItem);
-  t.truthy(audioDirective.audioItem.stream);
-
-  // Test audio item URI
-  const expectedUrl = `${AudioFilesUri}/001001.mp3`;
-  t.is(audioDirective.audioItem.stream.url, expectedUrl);
-
-  // Test current item token is valid
-  const token = JSON.parse(audioDirective.audioItem.stream.token);
-  t.truthy(token);
-  t.is(token.chapterNumber, 1);
-  t.is(token.verseNumber, 1);
+  verifyAudioDirective(t, response, expectedText, expectedUrl, expectedToken);
 
   // Test playHead is valid for the random user generated for this test.
   const nextPlayHead = await PlayHeadManager.getPlayHeadAsync(`test-user-${randomUserId}`, TestAccountAccessToken);
@@ -99,34 +77,11 @@ test('PlayChapterByNumberIntent for Chapter 9 (Special Case, no Bismillah)', asy
 
   const response = await Skill(event);
   const expectedText = 'Reciting ';
-
-  // Test structure and version of response.
-  t.is(response.version, '1.0');
-  t.truthy(response.response);
-  t.truthy(response.response.shouldEndSession);
-  t.truthy(response.response.outputSpeech);
-  t.is(response.response.outputSpeech.type, 'PlainText');
-
-  // audio directive should exist
-  t.truthy(response.response.directives);
-  t.is(response.response.directives.length, 1);
+  const expectedUrl = `${AudioFilesUri}/009001.mp3`;
+  const expectedToken = JSON.stringify({ chapterNumber: 9, verseNumber: 1 });
 
   // Test audio directive properties
-  const audioDirective = response.response.directives[0];
-  t.is(audioDirective.playBehavior, 'REPLACE_ALL');
-  t.is(audioDirective.type, 'AudioPlayer.Play');
-  t.truthy(audioDirective.audioItem);
-  t.truthy(audioDirective.audioItem.stream);
-
-  // Test audio item URI
-  const expectedUrl = `${AudioFilesUri}/009001.mp3`;
-  t.is(audioDirective.audioItem.stream.url, expectedUrl);
-
-  // Test current item token is valid
-  const token = JSON.parse(audioDirective.audioItem.stream.token);
-  t.truthy(token);
-  t.is(token.chapterNumber, 9);
-  t.is(token.verseNumber, 1);
+  verifyAudioDirective(t, response, expectedText, expectedUrl, expectedToken);
 
   // Test playHead is valid for the random user generated for this test.
   const nextPlayHead = await PlayHeadManager.getPlayHeadAsync(`test-user-${randomUserId}`, TestAccountAccessToken);
@@ -150,34 +105,11 @@ test('PlayChapterByNumberIntent for Chapter 12 (Start with Bismillah)', async t 
 
   const response = await Skill(event);
   const expectedText = 'Reciting ';
-
-  // Test structure and version of response.
-  t.is(response.version, '1.0');
-  t.truthy(response.response);
-  t.truthy(response.response.shouldEndSession);
-  t.truthy(response.response.outputSpeech);
-  t.is(response.response.outputSpeech.type, 'PlainText');
-
-  // audio directive should exist
-  t.truthy(response.response.directives);
-  t.is(response.response.directives.length, 1);
+  const expectedUrl = `${AudioFilesUri}/001001.mp3`;
+  const expectedToken = JSON.stringify({ chapterNumber: 1, verseNumber: 1 });
 
   // Test audio directive properties
-  const audioDirective = response.response.directives[0];
-  t.is(audioDirective.playBehavior, 'REPLACE_ALL');
-  t.is(audioDirective.type, 'AudioPlayer.Play');
-  t.truthy(audioDirective.audioItem);
-  t.truthy(audioDirective.audioItem.stream);
-
-  // Test audio item URI
-  const expectedUrl = `${AudioFilesUri}/001001.mp3`;
-  t.is(audioDirective.audioItem.stream.url, expectedUrl);
-
-  // Test current item token is valid
-  const token = JSON.parse(audioDirective.audioItem.stream.token);
-  t.truthy(token);
-  t.is(token.chapterNumber, 1);
-  t.is(token.verseNumber, 1);
+  verifyAudioDirective(t, response, expectedText, expectedUrl, expectedToken);
 
   // Test playHead is valid for the random user generated for this test.
   const nextPlayHead = await PlayHeadManager.getPlayHeadAsync(`test-user-${randomUserId}`, TestAccountAccessToken);

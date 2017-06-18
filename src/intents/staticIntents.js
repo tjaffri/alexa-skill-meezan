@@ -1,4 +1,4 @@
-import { say, ask } from 'alexa-response';
+import { say, ask, AudioPlayer } from 'alexa-response';
 
 export async function aboutIntent() {
   const aboutText = 'Meezan is a Quran skill for Alexa.';
@@ -33,7 +33,9 @@ export async function helpIntent() {
 }
 
 export async function stopIntent() {
-  return say('Goodbye!');
+  return say('Goodbye!')
+    .directives(AudioPlayer.clearQueue(true))
+    .build();
 }
 
 export async function notImplementedIntent() {
